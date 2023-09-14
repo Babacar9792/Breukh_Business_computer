@@ -1,0 +1,13 @@
+<div class="w-full h-full" *ngIf=" produitsBySuccursale.length ===0">
+    <app-autoloader></app-autoloader>
+</div>
+<div class="w-full h-full flex justify-center items-center"  *ngIf=" produitsBySuccursale.length !== 0">
+    <div class="h-full w-1/2 bg-white shadow-2xl border-white border-4 ">
+        <app-liste-vente [user]="user" [produitPanier]="produitPanier"></app-liste-vente>
+    </div>
+    <div class="h-full w-1/4  shadow-2xl border-white border-4">
+        <app-form-vente  
+        (addProductToPanier)="addProductToPanier($event)"
+        [produitsBySuccursale]="produitsBySuccursale"></app-form-vente>
+    </div>
+</div>
